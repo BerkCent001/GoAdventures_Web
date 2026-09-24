@@ -169,4 +169,33 @@ Quedo a la espera para confirmar disponibilidad y realizar el depósito del 20%.
             });
         });
     }
+
+// =======================================================
+    // 4. LÓGICA DE BOTONES DE IDIOMA (Traductor Personalizado)
+    // =======================================================
+    const botonesIdioma = document.querySelectorAll('.btn-lang');
+    
+    botonesIdioma.forEach(boton => {
+        boton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const idioma = boton.getAttribute('data-lang');
+            
+            if (idioma === 'es') {
+                // Volver al español (borrar cookies de Google y recargar)
+                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + location.hostname + "; path=/;";
+                location.reload();
+            } else {
+                // Cambiar el selector oculto de Google y disparar el evento
+                const selectElement = document.querySelector('.goog-te-combo');
+                if (selectElement) {
+                    selectElement.value = idioma;
+                    selectElement.dispatchEvent(new Event('change'));
+                }
+            }
+        });
+    });
+
+
+
 });

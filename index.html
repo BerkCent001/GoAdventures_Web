@@ -11,13 +11,22 @@
     <!-- Conectamos la configuración externa de colores -->
     <script src="tailwind-config.js"></script>
 
-<!-- Filtro para hacer blancos los íconos del calendario y reloj -->
+<!-- Filtros y estilos para ocultar el widget original de Google -->
     <style>
+        /* Íconos blancos para calendario y reloj */
         input[type="date"]::-webkit-calendar-picker-indicator,
         input[type="time"]::-webkit-calendar-picker-indicator {
             filter: invert(1);
             cursor: pointer;
         }
+        
+        /* Ocultar barra superior, marco blanco y tooltips de Google Translate */
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0px !important; }
+        .goog-tooltip { display: none !important; }
+        .goog-tooltip:hover { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
+        #google_translate_element { display: none !important; }
     </style>
 
 
@@ -39,8 +48,17 @@
                 <a href="#nosotros" class="text-gray-300 hover:text-white transition-colors">Nosotros</a>
                 <a href="galeria.html" class="text-gray-300 hover:text-white transition-colors">Galería</a>
                 
-                <!-- Contenedor del Traductor -->
-                <div id="google_translate_element" class="mt-1"></div>
+<!-- Motor de Google (Oculto visualmente) -->
+                <div id="google_translate_element" style="display:none;"></div>
+                
+                <!-- Botones Limpios de Idioma -->
+                <div class="flex items-center space-x-3 text-xs font-bold text-gray-500 bg-black/50 px-4 py-2 rounded-full border border-gray-800">
+                    <button class="btn-lang hover:text-white transition-colors" data-lang="es">ES</button>
+                    <span class="text-gray-700">|</span>
+                    <button class="btn-lang hover:text-white transition-colors" data-lang="en">EN</button>
+                    <span class="text-gray-700">|</span>
+                    <button class="btn-lang hover:text-white transition-colors" data-lang="pt">PT</button>
+                </div>
 
                 <button class="btn-abrir-modal border border-verde-natura text-verde-natura hover:bg-verde-natura hover:text-white transition-all px-6 py-2 rounded-full text-sm font-semibold">
                     Reserva
