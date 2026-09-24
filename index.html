@@ -10,6 +10,17 @@
     
     <!-- Conectamos la configuración externa de colores -->
     <script src="tailwind-config.js"></script>
+
+<!-- Filtro para hacer blancos los íconos del calendario y reloj -->
+    <style>
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+    </style>
+
+
 </head>
 <body class="bg-fondo-oscuro text-white font-sans antialiased overflow-x-hidden">
 
@@ -27,6 +38,10 @@
                 <a href="#tours" class="text-gray-300 hover:text-white transition-colors">Tours</a>
                 <a href="#nosotros" class="text-gray-300 hover:text-white transition-colors">Nosotros</a>
                 <a href="galeria.html" class="text-gray-300 hover:text-white transition-colors">Galería</a>
+                
+                <!-- Contenedor del Traductor -->
+                <div id="google_translate_element" class="mt-1"></div>
+
                 <button class="btn-abrir-modal border border-verde-natura text-verde-natura hover:bg-verde-natura hover:text-white transition-all px-6 py-2 rounded-full text-sm font-semibold">
                     Reserva
                 </button>
@@ -44,6 +59,10 @@
             <a href="#tours" class="enlace-movil text-gray-300 hover:text-white text-lg">Tours</a>
             <a href="#nosotros" class="enlace-movil text-gray-300 hover:text-white text-lg">Nosotros</a>
             <a href="galeria.html" class="enlace-movil text-gray-300 hover:text-white text-lg">Galería</a>
+            
+            <!-- Contenedor del Traductor -->
+                <div id="google_translate_element" class="mt-1"></div>
+            
             <button class="btn-abrir-modal enlace-movil bg-verde-natura hover:bg-emerald-500 text-white px-6 py-3 rounded-full font-bold mt-2 shadow-lg transition-all">
                 Reserva tu aventura
             </button>
@@ -321,6 +340,20 @@
             </form>
         </div>
     </div>
+
+
+<!-- Motor del Traductor de Google (ES, EN, PT) -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es',
+                includedLanguages: 'es,en,pt', // Español, Inglés, Portugués
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
     <!-- Vinculamos la lógica de JavaScript -->
     <script src="script.js"></script>
