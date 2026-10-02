@@ -96,18 +96,18 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const mensaje = `¡Hola Danny! Quiero solicitar una reserva. Aquí están mis datos:
 
-🏔️ *Tours:* ${textoTours}
-📅 *Fecha:* ${fecha}
-🕑 *Hora:* ${horaFormateada}
-👥 *Personas:* ${personas || "1"}
-👤 *Nombre:* ${nombre}
-📱 *Teléfono:* ${telefono}
-💬 *Comentarios:* ${notas || "Ninguno"}
+ *Tours:* ${textoTours}
+ *Fecha:* ${fecha}
+ *Hora:* ${horaFormateada}
+ *Personas:* ${personas || "1"}
+ *Nombre:* ${nombre}
+ *Teléfono:* ${telefono}
+ *Comentarios:* ${notas || "Ninguno"}
 
 Quedo a la espera para confirmar disponibilidad y realizar el depósito del 20%.`;
 
             // F. Enviar a WhatsApp
-            const numeroDanny = "50588598902"; 
+            const numeroDanny = "50558213126"; 
             const urlWhatsApp = `https://wa.me/${numeroDanny}?text=${encodeURIComponent(mensaje)}`;
             
             window.open(urlWhatsApp, '_blank');
@@ -171,7 +171,7 @@ Quedo a la espera para confirmar disponibilidad y realizar el depósito del 20%.
     }
 
 // =======================================================
-    // 4. LÓGICA DE BOTONES DE IDIOMA (Traductor Personalizado)
+    // 4. LÓGICA DE BOTONES DE IDIOMA (Traducción en Tiempo Real)
     // =======================================================
     const botonesIdioma = document.querySelectorAll('.btn-lang');
     
@@ -180,21 +180,54 @@ Quedo a la espera para confirmar disponibilidad y realizar el depósito del 20%.
             e.preventDefault();
             const idioma = boton.getAttribute('data-lang');
             
+            // Buscamos el motor nativo oculto de Google
+            const comboGoogle = document.querySelector('.goog-te-combo');
+
             if (idioma === 'es') {
-                // Volver al español (borrar cookies de Google y recargar)
+                // Para volver al español, limpiamos la memoria y recargamos
                 document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + location.hostname + "; path=/;";
-                location.reload();
+                document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=${location.hostname}; path=/;`;
+                location.reload(); 
+            } else if (comboGoogle) {
+                // Si vamos a Inglés o Portugués, cambiamos el valor del combo nativo
+                comboGoogle.value = idioma;
+                // Disparamos un evento "mágico" (bubbles: true) para que Google detecte el cambio al instante
+                comboGoogle.dispatchEvent(new Event('change', { bubbles: true }));
             } else {
-                // Cambiar el selector oculto de Google y disparar el evento
-                const selectElement = document.querySelector('.goog-te-combo');
-                if (selectElement) {
-                    selectElement.value = idioma;
-                    selectElement.dispatchEvent(new Event('change'));
-                }
+                console.log("El motor de Google aún no ha cargado.");
             }
         });
     });
+
+    // =======================================================
+    // 5. LÓGICA DE ACORDEONES (Vistas individuales de Tours)
+    // =======================================================
+    const botonesAcordeon = document.querySelectorAll('.btn-acordeon');
+    
+    botonesAcordeon.forEach(boton => {
+        boton.addEventListener('click', () => {
+            const contenido = boton.nextElementSibling;
+            const icono = boton.querySelector('.icono-acordeon');
+            const estaAbierto = !contenido.classList.contains('hidden');
+
+            // 1. Cerrar todos los acordeones primero (para que sea auto-colapsable)
+            document.querySelectorAll('.contenido-acordeon').forEach(item => {
+                item.classList.add('hidden');
+            });
+            document.querySelectorAll('.icono-acordeon').forEach(icon => {
+                icon.textContent = '+';
+                icon.style.transform = 'rotate(0deg)';
+            });
+
+            // 2. Si el que tocamos estaba cerrado, lo abrimos y cambiamos el icono
+            if (!estaAbierto) {
+                contenido.classList.remove('hidden');
+                icono.textContent = '−'; // signo menos
+                icono.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+
 
 
 

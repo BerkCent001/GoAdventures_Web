@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telica Sunset Tour | Go Adventure Nic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind-config.js"></script>
+    <style>
+        input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0px !important; }
+        .goog-tooltip { display: none !important; }
+        .goog-tooltip:hover { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
+        #google_translate_element { display: none !important; }
+    </style>
+</head>
+<body class="bg-fondo-oscuro text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header class="fixed top-0 w-full z-40 bg-fondo-oscuro/90 backdrop-blur-md border-b border-gray-800 transition-all px-6 py-4 md:px-12">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="img/logo.png" alt="Logo" class="h-10 md:h-12 w-auto invert opacity-95">
+                <div class="flex flex-col hidden sm:flex">
+                    <span class="text-xl font-bold tracking-wider">Go Adventure Nic</span>
+                    <span class="text-[0.65rem] text-gray-300 tracking-[0.25em] uppercase">Vive • Explora • Descubre</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-medium items-center">
+                <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Inicio</a>
+                <a href="index.html#tours" class="text-white border-b-2 border-azul-claro pb-1">Tours</a>
+                <a href="shuttles.html" class="text-gray-300 hover:text-white transition-colors">Shuttles</a>
+                <a href="galeria.html" class="text-gray-300 hover:text-white transition-colors">Galería</a>
+                
+                <div id="google_translate_element" style="display:none;"></div>
+                <div class="flex items-center space-x-2 lg:space-x-3 text-[0.65rem] lg:text-xs font-bold text-gray-500 bg-black/50 px-3 py-2 rounded-full border border-gray-800">
+                    <button class="btn-lang hover:text-white transition-colors" data-lang="es">ES</button>
+                    <span class="text-gray-700">|</span>
+                    <button class="btn-lang hover:text-white transition-colors" data-lang="en">EN</button>
+                    <span class="text-gray-700">|</span>
+                    <button class="btn-lang hover:text-white transition-colors" data-lang="pt">PT</button>
+                </div>
+            </nav>
+
+            <button id="btn-menu-mobile" class="md:hidden text-white hover:text-azul-claro">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <div id="menu-mobile" class="hidden md:hidden flex flex-col mt-4 space-y-4 text-center bg-black/95 p-6 rounded-xl border border-gray-800">
+            <a href="index.html" class="enlace-movil text-gray-300 hover:text-white text-lg">Inicio</a>
+            <a href="index.html#tours" class="enlace-movil text-white text-lg">Tours</a>
+            <a href="shuttles.html" class="enlace-movil text-gray-300 hover:text-white text-lg">Shuttles</a>
+            <a href="galeria.html" class="enlace-movil text-gray-300 hover:text-white text-lg">Galería</a>
+            <div class="flex justify-center space-x-4 text-sm font-bold text-gray-400 mt-2">
+                <button class="btn-lang hover:text-white" data-lang="es">ES</button>
+                <button class="btn-lang hover:text-white" data-lang="en">EN</button>
+                <button class="btn-lang hover:text-white" data-lang="pt">PT</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO DEL TOUR -->
+    <div class="relative h-[60vh] md:h-[65vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2000');">
+        <div class="absolute inset-0 bg-gradient-to-t from-fondo-oscuro via-black/60 to-black/40"></div>
+        <div class="relative z-10 flex flex-col justify-end h-full px-6 md:px-12 lg:px-20 pb-16 max-w-6xl mx-auto">
+            
+            <div class="text-xs text-gray-400 mb-6 tracking-widest uppercase flex gap-2 items-center">
+                <a href="index.html" class="hover:text-white">Inicio</a> <span>/</span> 
+                <a href="index.html#tours" class="hover:text-white">Tours</a> <span>/</span> 
+                <span class="text-naranja-aventura font-bold">Telica Sunset</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-2 uppercase tracking-tight">Telica Volcano Sunset</h1>
+            <p class="text-lg md:text-xl text-gray-300 font-light mb-6">Uno de los cráteres humeantes más impresionantes y activos de Nicaragua.</p>
+            
+        </div>
+    </div>
+
+    <!-- CONTENIDO DEL TOUR -->
+    <section class="py-12 md:py-20 bg-fondo-oscuro">
+        <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row gap-16">
+            
+            <!-- Columna Izquierda -->
+            <div class="lg:w-2/3">
+                <div class="mb-10">
+                    <h3 class="text-xs font-bold text-naranja-aventura tracking-[0.2em] uppercase mb-4">La Experiencia</h3>
+                    <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
+                        El Volcán Telica es uno de los volcanes más impresionantes y activos de Nicaragua en los últimos diez años. Su enorme cráter humeante (de 700 metros de ancho y 230 de profundidad) sin barreras ni muros, ofrece un espectáculo natural inigualable.
+                    </p>
+                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                        Nuestra caminata sobre superficies rocosas te llevará a presenciar vistas asombrosas y atardeceres que te robarán el aliento. Una experiencia verdaderamente inolvidable en la Cordillera de los Maribios.
+                    </p>
+                </div>
+
+                <!-- ACORDEÓN INTERACTIVO -->
+                <div class="space-y-4 mb-12">
+                    
+                    <div class="border border-gray-800 rounded-xl overflow-hidden">
+                        <button class="btn-acordeon w-full bg-[#111] px-6 py-5 flex justify-between items-center text-white font-bold hover:bg-gray-900 transition-colors">
+                            <span class="flex items-center gap-3 tracking-wide">🎒 ¿Qué Incluye?</span>
+                            <span class="icono-acordeon text-azul-claro text-2xl font-light transition-transform duration-300">+</span>
+                        </button>
+                        <div class="contenido-acordeon hidden bg-black/50 px-6 py-6 text-gray-300 text-sm border-t border-gray-800">
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3"><span class="text-azul-claro font-bold">✓</span> Transporte 4x4 + Conductor</li>
+                                <li class="flex items-start gap-3"><span class="text-azul-claro font-bold">✓</span> Tarifas de entrada al parque</li>
+                                <li class="flex items-start gap-3"><span class="text-azul-claro font-bold">✓</span> Servicio de Guía experto bilingüe</li>
+                                <li class="flex items-start gap-3"><span class="text-azul-claro font-bold">✓</span> Snacks / Frutas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-800 rounded-xl overflow-hidden">
+                        <button class="btn-acordeon w-full bg-[#111] px-6 py-5 flex justify-between items-center text-white font-bold hover:bg-gray-900 transition-colors">
+                            <span class="flex items-center gap-3 tracking-wide">👟 ¿Qué debo llevar?</span>
+                            <span class="icono-acordeon text-azul-claro text-2xl font-light transition-transform duration-300">+</span>
+                        </button>
+                        <div class="contenido-acordeon hidden bg-black/50 px-6 py-6 text-gray-300 text-sm border-t border-gray-800">
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-gray-600"></span> Zapatos cerrados para senderismo</li>
+                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-gray-600"></span> 2 Litros de agua por persona</li>
+                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-gray-600"></span> Camiseta de manga larga o chaqueta (refresca de noche)</li>
+                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-gray-600"></span> Lámparas o linternas (para el descenso)</li>
+                                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-gray-600"></span> Tu cámara o celular</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-800 rounded-xl overflow-hidden">
+                        <button class="btn-acordeon w-full bg-[#111] px-6 py-5 flex justify-between items-center text-white font-bold hover:bg-gray-900 transition-colors">
+                            <span class="flex items-center gap-3 tracking-wide">💰 Precios y Pagos</span>
+                            <span class="icono-acordeon text-azul-claro text-2xl font-light transition-transform duration-300">+</span>
+                        </button>
+                        <div class="contenido-acordeon hidden bg-black/50 px-6 py-6 text-gray-300 text-sm border-t border-gray-800 leading-relaxed">
+                            <p class="mb-3">Este tour privado tiene un precio base aproximado de <strong>$60 por persona</strong> (mínimo 3 personas).</p>
+                            <p class="mb-3">También contamos con la versión extrema <strong>Telica Sunrise</strong> saliendo a las 2:30 AM para ver el amanecer ($55 por persona).</p>
+                            <p class="text-azul-claro font-bold">¡Haz clic en Reservar para cotizar tu paquete directamente con nuestro equipo por WhatsApp!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Columna Derecha (Ficha Técnica y Botón) -->
+            <div class="lg:w-1/3">
+                <div class="sticky top-28 bg-[#111] border border-gray-800 rounded-2xl p-8">
+                    <h4 class="text-[0.65rem] font-bold text-gray-500 uppercase tracking-widest mb-6">Detalles del Tour</h4>
+                    
+                    <div class="space-y-5">
+                        <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+                            <span class="text-gray-400 text-sm flex items-center gap-2">⏱ Duración</span>
+                            <span class="text-white font-bold text-sm">Aprox. 7 horas</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+                            <span class="text-gray-400 text-sm flex items-center gap-2">⛰️ Caminata</span>
+                            <span class="text-white font-bold text-sm text-right">Moderada<br><span class="text-xs font-normal text-gray-400">1 hora de subida rocosa</span></span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 text-sm flex items-center gap-2">💎 Categoría</span>
+                            <span class="text-white font-bold text-sm text-right">Privado<br><span class="text-xs font-normal text-gray-400">Todo incluido</span></span>
+                        </div>
+                    </div>
+
+                    <button class="btn-abrir-modal w-full mt-8 bg-azul-claro hover:bg-blue-600 text-white px-6 py-4 rounded-xl font-bold transition-all shadow-lg text-center uppercase tracking-wider text-sm flex items-center justify-center gap-2">
+                        Reservar y Cotizar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER BÁSICO -->
+    <footer class="bg-black py-8 text-center text-gray-500 text-sm border-t border-gray-800">
+        <p>&copy; 2026 Go Adventure Nic. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- MODAL RESERVA -->
+    <div id="modal-reserva" class="fixed inset-0 z-50 hidden flex items-start md:items-center justify-center bg-black/90 backdrop-blur-sm p-4 overflow-y-auto">
+        <div class="bg-[#111] border border-gray-800 rounded-3xl p-6 md:p-8 shadow-2xl w-full max-w-2xl relative mt-24 mb-10 md:my-8">
+            <button id="btn-cerrar-modal" class="absolute top-4 right-5 text-gray-500 hover:text-white text-3xl transition-colors">&times;</button>
+            <div class="text-center mb-8 mt-2">
+                <h2 class="text-3xl font-bold text-white mb-2">Cotizar <span class="text-azul-claro">Reserva</span></h2>
+                <p class="text-gray-400 text-sm">Envía tu solicitud y Danny te confirmará el precio y la disponibilidad por WhatsApp.</p>
+            </div>
+            <form id="form-reserva" class="space-y-5">
+                <div>
+                    <label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-2">Selecciona tus Tours</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="res_tours_container">
+                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-azul-claro"><input type="checkbox" name="tour" value="Volcano Boarding" class="w-4 h-4 accent-azul-claro"><span class="text-gray-300 text-sm">Volcano Boarding</span></label>
+                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-azul-claro"><input type="checkbox" name="tour" value="Telica Sunset" class="w-4 h-4 accent-azul-claro" checked><span class="text-gray-300 text-sm">Telica Sunset</span></label>
+                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-azul-claro"><input type="checkbox" name="tour" value="Leon Walking Tour" class="w-4 h-4 accent-azul-claro"><span class="text-gray-300 text-sm">Leon Walking Tour</span></label>
+                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-azul-claro"><input type="checkbox" name="tour" value="Juan Venado Mangrove" class="w-4 h-4 accent-azul-claro"><span class="text-gray-300 text-sm">Juan Venado</span></label>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+                    <div><label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">Fecha</label><input type="date" id="res_fecha" class="w-full bg-black border border-gray-700 text-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:border-azul-claro text-sm cursor-pointer"></div>
+                    <div><label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">Hora</label><input type="time" id="res_hora" class="w-full bg-black border border-gray-700 text-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:border-azul-claro text-sm cursor-pointer"></div>
+                    <div><label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">Personas</label><input type="number" id="res_personas" min="1" placeholder="Ej: 3" class="w-full bg-black border border-gray-700 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:border-azul-claro text-sm"></div>
+                    <div><label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">Nombre</label><input type="text" id="res_nombre" placeholder="Tu nombre" class="w-full bg-black border border-gray-700 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:border-azul-claro text-sm"></div>
+                    <div class="md:col-span-2"><label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">WhatsApp / Teléfono</label><input type="tel" id="res_telefono" placeholder="+505 0000 0000" class="w-full bg-black border border-gray-700 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:border-azul-claro text-sm"></div>
+                </div>
+                <div><label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">Comentarios / Dudas</label><textarea id="res_notas" rows="2" placeholder="¿Dudas sobre el precio o detalles extra?" class="w-full bg-black border border-gray-700 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:border-azul-claro text-sm resize-none"></textarea></div>
+                <div class="mt-4 text-center">
+                    <button type="button" id="btn-enviar-whatsapp" class="w-full bg-azul-claro hover:bg-blue-500 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-3">Cotizar por WhatsApp</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'es,en,pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -3,20 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería | Go Adventures</title>
+    <title>Galería | Go Adventure Nic</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="tailwind-config.js"></script>
-
-<!-- Filtros y estilos para ocultar el widget original de Google -->
     <style>
-        /* Íconos blancos para calendario y reloj */
-        input[type="date"]::-webkit-calendar-picker-indicator,
-        input[type="time"]::-webkit-calendar-picker-indicator {
-            filter: invert(1);
-            cursor: pointer;
-        }
-        
-        /* Ocultar barra superior, marco blanco y tooltips de Google Translate */
+        input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
         .goog-te-banner-frame.skiptranslate { display: none !important; }
         body { top: 0px !important; }
         .goog-tooltip { display: none !important; }
@@ -24,65 +15,53 @@
         .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
         #google_translate_element { display: none !important; }
     </style>
-
 </head>
 <body class="bg-fondo-oscuro text-white font-sans antialiased overflow-x-hidden">
 
-    <!-- ================= BARRA DE NAVEGACIÓN FIJA ================= -->
     <header class="fixed top-0 w-full z-40 bg-fondo-oscuro/90 backdrop-blur-md border-b border-gray-800 transition-all px-6 py-4 md:px-12">
         <div class="flex items-center justify-between">
-            <div class="flex flex-col">
-                <span class="text-2xl font-bold tracking-wider">Go Adventours</span>
-                <span class="text-[0.65rem] text-gray-300 tracking-[0.25em] uppercase">Vive • Explora • Descubre</span>
+            <div class="flex items-center gap-3">
+                <img src="C:\ProyectPracti\GoAdventures_Web\img\logo.png" alt="Logo" class="h-10 md:h-12 w-auto invert opacity-95">
+                <div class="flex flex-col hidden sm:flex">
+                    <span class="text-xl font-bold tracking-wider">Go Adventure Nic</span>
+                    <span class="text-[0.65rem] text-gray-300 tracking-[0.25em] uppercase">Vive • Explora • Descubre</span>
+                </div>
             </div>
             
-            <!-- Menú Escritorio -->
-            <nav class="hidden md:flex space-x-8 text-sm font-medium items-center">
-                <a href="index.html" class="text-white hover:text-verde-natura transition-colors">Inicio</a>
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-medium items-center">
+                <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Inicio</a>
                 <a href="index.html#tours" class="text-gray-300 hover:text-white transition-colors">Tours</a>
-                <a href="index.html#nosotros" class="text-gray-300 hover:text-white transition-colors">Nosotros</a>
-                <a href="galeria.html" class="text-gray-300 hover:text-white transition-colors">Galería</a>
+                <a href="shuttles.html" class="text-gray-300 hover:text-white transition-colors">Shuttles</a>
+                <a href="#" class="text-white hover:text-azul-claro transition-colors border-b-2 border-azul-claro pb-1">Galería</a>
                 
-<!-- Motor de Google (Oculto visualmente) -->
                 <div id="google_translate_element" style="display:none;"></div>
-                
-                <!-- Botones Limpios de Idioma -->
-                <div class="flex items-center space-x-3 text-xs font-bold text-gray-500 bg-black/50 px-4 py-2 rounded-full border border-gray-800">
+                <div class="flex items-center space-x-2 lg:space-x-3 text-[0.65rem] lg:text-xs font-bold text-gray-500 bg-black/50 px-3 py-2 rounded-full border border-gray-800">
                     <button class="btn-lang hover:text-white transition-colors" data-lang="es">ES</button>
                     <span class="text-gray-700">|</span>
                     <button class="btn-lang hover:text-white transition-colors" data-lang="en">EN</button>
                     <span class="text-gray-700">|</span>
                     <button class="btn-lang hover:text-white transition-colors" data-lang="pt">PT</button>
                 </div>
-
-                <button class="btn-abrir-modal border border-verde-natura text-verde-natura hover:bg-verde-natura hover:text-white transition-all px-6 py-2 rounded-full text-sm font-semibold">
-                    Reserva
-                </button>
             </nav>
 
-            <!-- Botón Menú Móvil (Hamburguesa) -->
-            <button id="btn-menu-mobile" class="md:hidden text-white hover:text-verde-natura">
+            <button id="btn-menu-mobile" class="md:hidden text-white hover:text-azul-claro">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
 
-        <!-- Menú Desplegable Móvil (Oculto por defecto) -->
         <div id="menu-mobile" class="hidden md:hidden flex flex-col mt-4 space-y-4 text-center bg-black/95 p-6 rounded-xl border border-gray-800">
-            <a href="index.html" class="text-gray-300 hover:text-white text-lg">Inicio</a>
-            <a href="index.html#tours" class="text-gray-300 hover:text-white text-lg">Tours</a>
-            <a href="index.html#nosotros" class="text-gray-300 hover:text-white text-lg">Nosotros</a>
-            <a href="galeria.html" class="text-gray-300 hover:text-white text-lg">Galería</a>
-            
-            <!-- Contenedor del Traductor -->
-                <div id="google_translate_element" class="mt-1"></div>
-
-            <button class="btn-abrir-modal bg-verde-natura hover:bg-emerald-500 text-white px-6 py-3 rounded-full font-bold mt-2 shadow-lg transition-all">
-                Reserva tu aventura
-            </button>
+            <a href="index.html" class="enlace-movil text-gray-300 hover:text-white text-lg">Inicio</a>
+            <a href="index.html#tours" class="enlace-movil text-gray-300 hover:text-white text-lg">Tours</a>
+            <a href="shuttles.html" class="enlace-movil text-gray-300 hover:text-white text-lg">Shuttles</a>
+            <a href="#" class="enlace-movil text-white text-lg">Galería</a>
+            <div class="flex justify-center space-x-4 text-sm font-bold text-gray-400 mt-2">
+                <button class="btn-lang hover:text-white" data-lang="es">ES</button>
+                <button class="btn-lang hover:text-white" data-lang="en">EN</button>
+                <button class="btn-lang hover:text-white" data-lang="pt">PT</button>
+            </div>
         </div>
     </header>
 
-    <!-- ================= SECCIÓN DE GALERÍA CON CARRUSEL E INSTAGRAM ================= -->
     <section class="pt-32 pb-24 min-h-screen flex flex-col justify-center bg-black relative">
         <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 w-full">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
@@ -90,137 +69,48 @@
                     <h2 class="text-4xl font-bold text-white mb-2">Nuestra <span class="text-naranja-aventura">Galería</span></h2>
                     <p class="text-gray-400">Las mejores vistas capturadas por nuestros aventureros.</p>
                 </div>
-                <!-- ENLACE OFICIAL A INSTAGRAM -->
-                <a href="https://www.instagram.com/goadventuresnic?stkn=MXB1Z3Ewc3J3c2VtMQ==" target="_blank" class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors border border-gray-700 px-4 py-2 rounded-full hover:border-white">
+                <a href="https://www.instagram.com/goadventuresnic?stkn=MXB1Z3Ewc3J3c2VtMQ==" target="_blank" class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors border border-gray-700 px-4 py-2 rounded-full hover:border-azul-claro">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     Síguenos en Instagram
                 </a>
             </div>
             
-            <!-- Carrusel -->
             <div class="relative group rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
                 <div id="carrusel-slides" class="flex transition-transform duration-700 ease-in-out h-[60vh] md:h-[75vh]">
-                    <div class="w-full flex-shrink-0 relative"><img src="https://images.unsplash.com/photo-1643213506161-12c8ff44a1b0?q=80&w=1200" class="w-full h-full object-cover" alt="Cerro Negro"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white tracking-widest uppercase">Cerro Negro</h3></div></div>
-                    <div class="w-full flex-shrink-0 relative"><img src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?q=80&w=1200" class="w-full h-full object-cover" alt="León Walking"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white tracking-widest uppercase">Cultura y Tradición</h3></div></div>
-                    <div class="w-full flex-shrink-0 relative"><img src="https://images.unsplash.com/photo-1476611317561-60117649dd94?q=80&w=1200" class="w-full h-full object-cover" alt="Juan Venado"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white tracking-widest uppercase">Reserva Juan Venado</h3></div></div>
-                    <div class="w-full flex-shrink-0 relative"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200" class="w-full h-full object-cover" alt="Atardecer Telica"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white tracking-widest uppercase">Atardeceres Únicos</h3></div></div>
+                    <div class="w-full flex-shrink-0 relative"><img src="img/CerroLargo.jpeg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white uppercase">Cerro Negro</h3></div></div>
+                    <div class="w-full flex-shrink-0 relative"><img src="img/FlordCaña.jpeg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white uppercase">Cultura y Tradición</h3></div></div>
+                    <div class="w-full flex-shrink-0 relative"><img src="img/ilsaJuVen.png" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white uppercase">Reserva Juan Venado</h3></div></div>
+                    <div class="w-full flex-shrink-0 relative"><img src="img/sunsetVolc.jpeg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white uppercase">Atardeceres Únicos</h3></div></div>
+                    <div class="w-full flex-shrink-0 relative"><img src="img/LeonViej.jpeg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white uppercase">Leon Viejo</h3></div></div>
+                    <div class="w-full flex-shrink-0 relative"><img src="img/SJDS.jpeg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white uppercase">San Juan del Sur</h3></div></div>
+                    <div class="w-full flex-shrink-0 relative"><img src="img/RotuFlorCa.jpeg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white uppercase">Fabrica Flor de Caña</h3></div></div>
+                    <div class="w-full flex-shrink-0 relative"><img src="img/VistMOMOT.jpeg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex items-end justify-center pb-12"><h3 class="text-2xl font-bold text-white uppercase">Volcan Momotombo</h3></div></div>
+
                 </div>
-                <button id="btn-prev" class="absolute top-1/2 -translate-y-1/2 left-4 w-12 h-12 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-verde-natura transition-colors backdrop-blur z-10"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                <button id="btn-next" class="absolute top-1/2 -translate-y-1/2 right-4 w-12 h-12 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-verde-natura transition-colors backdrop-blur z-10"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                <button id="btn-prev" class="absolute top-1/2 -translate-y-1/2 left-4 w-12 h-12 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-azul-claro transition-colors backdrop-blur z-10"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+                <button id="btn-next" class="absolute top-1/2 -translate-y-1/2 right-4 w-12 h-12 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-azul-claro transition-colors backdrop-blur z-10"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
                 <div class="absolute bottom-6 left-0 right-0 flex justify-center gap-3" id="carrusel-dots">
-                    <button class="w-3 h-3 rounded-full bg-verde-natura transition-colors dot-indicador" data-index="0"></button>
-                    <button class="w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-colors dot-indicador" data-index="1"></button>
-                    <button class="w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-colors dot-indicador" data-index="2"></button>
-                    <button class="w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-colors dot-indicador" data-index="3"></button>
+                    <button class="w-3 h-3 rounded-full bg-azul-claro transition-colors dot-indicador" data-index="0"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/40 transition-colors dot-indicador" data-index="1"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/40 transition-colors dot-indicador" data-index="2"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/40 transition-colors dot-indicador" data-index="3"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/40 transition-colors dot-indicador" data-index="4"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/40 transition-colors dot-indicador" data-index="5"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/40 transition-colors dot-indicador" data-index="6"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/40 transition-colors dot-indicador" data-index="7"></button>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER BÁSICO -->
-    <footer class="bg-black py-8 text-center text-gray-500 text-sm border-t border-gray-800">
-        <p>&copy; 2026 Go Adventours. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- ================= VENTANA EMERGENTE (MODAL REPARADO PARA MÓVILES) ================= -->
-    <div id="modal-reserva" class="fixed inset-0 z-50 hidden flex items-start md:items-center justify-center bg-black/90 backdrop-blur-sm p-4 overflow-y-auto">
-        <div class="bg-[#111] border border-gray-800 rounded-3xl p-6 md:p-8 shadow-2xl w-full max-w-2xl relative mt-24 mb-10 md:my-8">
-            <button id="btn-cerrar-modal" class="absolute top-4 right-5 text-gray-500 hover:text-white text-3xl transition-colors">&times;</button>
-            
-            <div class="text-center mb-8 mt-2">
-                <h2 class="text-3xl font-bold text-white mb-2">Solicitud de <span class="text-verde-natura">Reserva</span></h2>
-                <p class="text-gray-400 text-sm">Completa tus datos para enviarle la solicitud a Danny por WhatsApp.</p>
-            </div>
-
-            <!-- Formulario con Checkboxes y Calendario Nativo -->
-            <form id="form-reserva" class="space-y-5">
-                <div>
-                    <label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-2">Selecciona tus Tours</label>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="res_tours_container">
-                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-verde-natura transition-colors">
-                            <input type="checkbox" name="tour" value="Volcano Boarding Cerro Negro" class="w-4 h-4 accent-verde-natura bg-gray-900 border-gray-700">
-                            <span class="text-gray-300 text-sm">Volcano Boarding</span>
-                        </label>
-                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-verde-natura transition-colors">
-                            <input type="checkbox" name="tour" value="Cerro Negro + SandBoarding" class="w-4 h-4 accent-verde-natura bg-gray-900 border-gray-700">
-                            <span class="text-gray-300 text-sm">Volcano + SandBoarding</span>
-                        </label>
-                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-verde-natura transition-colors">
-                            <input type="checkbox" name="tour" value="Telica Volcano Sunset" class="w-4 h-4 accent-verde-natura bg-gray-900 border-gray-700">
-                            <span class="text-gray-300 text-sm">Telica Sunset</span>
-                        </label>
-                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-verde-natura transition-colors">
-                            <input type="checkbox" name="tour" value="Leon Walking Tour" class="w-4 h-4 accent-verde-natura bg-gray-900 border-gray-700">
-                            <span class="text-gray-300 text-sm">Leon Walking Tour</span>
-                        </label>
-                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-verde-natura transition-colors">
-                            <input type="checkbox" name="tour" value="Two UNESCO Sites" class="w-4 h-4 accent-verde-natura bg-gray-900 border-gray-700">
-                            <span class="text-gray-300 text-sm">Two UNESCO Sites</span>
-                        </label>
-                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-verde-natura transition-colors">
-                            <input type="checkbox" name="tour" value="Rum Factory Tour" class="w-4 h-4 accent-verde-natura bg-gray-900 border-gray-700">
-                            <span class="text-gray-300 text-sm">Rum Factory Tour</span>
-                        </label>
-                        <label class="flex items-center space-x-3 bg-black/50 border border-gray-800 p-3 rounded-xl cursor-pointer hover:border-verde-natura transition-colors md:col-span-2">
-                            <input type="checkbox" name="tour" value="Juan Venado Mangrove" class="w-4 h-4 accent-verde-natura bg-gray-900 border-gray-700">
-                            <span class="text-gray-300 text-sm">Juan Venado Mangrove</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
-                    <div>
-                        <label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">Fecha</label>
-                        <input type="date" id="res_fecha" class="w-full bg-black border border-gray-700 text-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:border-verde-natura text-sm cursor-pointer">
-                    </div>
-                    <div>
-                        <label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">Hora (Aprox)</label>
-                        <input type="time" id="res_hora" class="w-full bg-black border border-gray-700 text-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:border-verde-natura text-sm cursor-pointer">
-                    </div>
-                    <div>
-                        <label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">Personas</label>
-                        <input type="number" id="res_personas" min="1" placeholder="Ej: 3" class="w-full bg-black border border-gray-700 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:border-verde-natura text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">Nombre</label>
-                        <input type="text" id="res_nombre" placeholder="Tu nombre" class="w-full bg-black border border-gray-700 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:border-verde-natura text-sm">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">WhatsApp / Teléfono</label>
-                        <input type="tel" id="res_telefono" placeholder="+505 0000 0000" class="w-full bg-black border border-gray-700 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:border-verde-natura text-sm">
-                    </div>
-                </div>
-                
-                <div>
-                    <label class="block text-[0.65rem] font-bold tracking-wider text-gray-400 uppercase mb-1">Comentarios Adicionales</label>
-                    <textarea id="res_notas" rows="2" placeholder="¿Alguna alergia o requerimiento especial?" class="w-full bg-black border border-gray-700 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:border-verde-natura text-sm resize-none"></textarea>
-                </div>
-
-                <div class="mt-4 text-center">
-                    <button type="button" id="btn-enviar-whatsapp" class="w-full bg-verde-natura hover:bg-emerald-500 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-3">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        Enviar Solicitud
-                    </button>
-                    <p class="text-[0.65rem] text-gray-500 mt-3 uppercase tracking-widest">Reserva mediante transferencia (Depósito 20%)</p>
-                </div>
-            </form>
-        </div>
-    </div>
-
-<!-- Motor del Traductor de Google (ES, EN, PT) -->
+    <!-- Traductor de Google -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'es',
-                includedLanguages: 'es,en,pt', // Español, Inglés, Portugués
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
+            new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'es,en,pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
         }
     </script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-
-    <!-- Vinculamos la lógica de JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
