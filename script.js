@@ -180,24 +180,28 @@ Quedo a la espera para confirmar disponibilidad y realizar el depósito del 20%.
             e.preventDefault();
             const idioma = boton.getAttribute('data-lang');
             
-            // Buscamos el motor nativo oculto de Google
-            const comboGoogle = document.querySelector('.goog-te-combo');
+            // Buscamos el selector nativo de Google (que ahora SÍ existirá)
+            const comboGoogle = document.querySelector('select.goog-te-combo');
 
+            // Si el cliente quiere volver al Español
             if (idioma === 'es') {
-                // Para volver al español, limpiamos la memoria y recargamos
                 document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=${location.hostname}; path=/;`;
                 location.reload(); 
-            } else if (comboGoogle) {
-                // Si vamos a Inglés o Portugués, cambiamos el valor del combo nativo
-                comboGoogle.value = idioma;
-                // Disparamos un evento "mágico" (bubbles: true) para que Google detecte el cambio al instante
-                comboGoogle.dispatchEvent(new Event('change', { bubbles: true }));
-            } else {
-                console.log("El motor de Google aún no ha cargado.");
+            } 
+            // Si el cliente elige Inglés o Portugués
+            else {
+                if (comboGoogle) {
+                    comboGoogle.value = idioma;
+                    // Forzamos el evento para que Google traduzca instantáneamente
+                    comboGoogle.dispatchEvent(new Event('change', { bubbles: true }));
+                } else {
+                    console.log("El motor de Google aún está cargando...");
+                }
             }
         });
     });
+    
 
     // =======================================================
     // 5. LÓGICA DE ACORDEONES (Vistas individuales de Tours)

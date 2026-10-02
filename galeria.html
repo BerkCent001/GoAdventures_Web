@@ -7,13 +7,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="tailwind-config.js"></script>
     <style>
-        input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
-        .goog-te-banner-frame.skiptranslate { display: none !important; }
-        body { top: 0px !important; }
+        /* Íconos blancos para calendario y reloj */
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
+        
+        /* ASESINAR LA BARRA DE GOOGLE (Versiones clásicas y modernas) */
+        .goog-te-banner-frame.skiptranslate,
+        iframe.goog-te-banner-frame,
+        #goog-gt-tt,
+        .goog-te-balloon-frame,
+        .VIpgJd-ZVi9od-ORHb-OEVmcd,
+        .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+            display: none !important;
+        }
+
+        /* Mantener el body en su lugar (Google intenta empujarlo hacia abajo) */
+        body { top: 0px !important; position: static !important; min-height: 100vh; }
+        
+        /* Eliminar tooltips y fondos amarillos al pasar el mouse */
         .goog-tooltip { display: none !important; }
         .goog-tooltip:hover { display: none !important; }
         .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
-        #google_translate_element { display: none !important; }
+
+        /* Ocultar el widget de Google de forma segura sin apagar su motor */
+        #google_translate_element { 
+            position: absolute; 
+            left: -9999px; 
+            width: 1px; 
+            height: 1px; 
+            overflow: hidden; 
+        }
     </style>
 </head>
 <body class="bg-fondo-oscuro text-white font-sans antialiased overflow-x-hidden">
@@ -21,7 +44,7 @@
     <header class="fixed top-0 w-full z-40 bg-fondo-oscuro/90 backdrop-blur-md border-b border-gray-800 transition-all px-6 py-4 md:px-12">
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="C:\ProyectPracti\GoAdventures_Web\img\logo.png" alt="Logo" class="h-10 md:h-12 w-auto invert opacity-95">
+                <img src="img/logo.png" alt="Logo" class="h-10 md:h-12 w-auto invert opacity-95">
                 <div class="flex flex-col hidden sm:flex">
                     <span class="text-xl font-bold tracking-wider">Go Adventure Nic</span>
                     <span class="text-[0.65rem] text-gray-300 tracking-[0.25em] uppercase">Vive • Explora • Descubre</span>
@@ -34,7 +57,7 @@
                 <a href="shuttles.html" class="text-gray-300 hover:text-white transition-colors">Shuttles</a>
                 <a href="#" class="text-white hover:text-azul-claro transition-colors border-b-2 border-azul-claro pb-1">Galería</a>
                 
-                <div id="google_translate_element" style="display:none;"></div>
+                <div id="google_translate_element"></div>
                 <div class="flex items-center space-x-2 lg:space-x-3 text-[0.65rem] lg:text-xs font-bold text-gray-500 bg-black/50 px-3 py-2 rounded-full border border-gray-800">
                     <button class="btn-lang hover:text-white transition-colors" data-lang="es">ES</button>
                     <span class="text-gray-700">|</span>
@@ -104,10 +127,13 @@
         </div>
     </section>
 
-    <!-- Traductor de Google -->
+   <!-- Traductor de Google (Sin Layout Simple para que el JS lo detecte) -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'es,en,pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+            new google.translate.TranslateElement({ 
+                pageLanguage: 'es', 
+                includedLanguages: 'es,en,pt' 
+            }, 'google_translate_element');
         }
     </script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

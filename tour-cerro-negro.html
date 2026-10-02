@@ -7,13 +7,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="tailwind-config.js"></script>
     <style>
-        input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
-        .goog-te-banner-frame.skiptranslate { display: none !important; }
-        body { top: 0px !important; }
+        /* Íconos blancos para calendario y reloj */
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
+        
+        /* ASESINAR LA BARRA DE GOOGLE (Versiones clásicas y modernas) */
+        .goog-te-banner-frame.skiptranslate,
+        iframe.goog-te-banner-frame,
+        #goog-gt-tt,
+        .goog-te-balloon-frame,
+        .VIpgJd-ZVi9od-ORHb-OEVmcd,
+        .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+            display: none !important;
+        }
+
+        /* Mantener el body en su lugar (Google intenta empujarlo hacia abajo) */
+        body { top: 0px !important; position: static !important; min-height: 100vh; }
+        
+        /* Eliminar tooltips y fondos amarillos al pasar el mouse */
         .goog-tooltip { display: none !important; }
         .goog-tooltip:hover { display: none !important; }
         .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
-        #google_translate_element { display: none !important; }
+
+        /* Ocultar el widget de Google de forma segura sin apagar su motor */
+        #google_translate_element { 
+            position: absolute; 
+            left: -9999px; 
+            width: 1px; 
+            height: 1px; 
+            overflow: hidden; 
+        }
     </style>
 </head>
 <body class="bg-fondo-oscuro text-white font-sans antialiased overflow-x-hidden">
@@ -230,7 +253,16 @@
             new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'es,en,pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
         }
     </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- Traductor de Google (Sin Layout Simple para que el JS lo detecte) -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ 
+                pageLanguage: 'es', 
+                includedLanguages: 'es,en,pt' 
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>    
     <script src="script.js"></script>
 </body>
 </html>
